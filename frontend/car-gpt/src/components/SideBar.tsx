@@ -14,6 +14,7 @@ import {
   Avatar,
   Grid,
   ListItemAvatar,
+  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MailIcon from "@mui/icons-material/Mail";
@@ -39,11 +40,11 @@ export default function SideBar() {
       icon: <MenuIcon />,
       onClick: () => navigate("/"),
     },
-    // {
-    //   title: "설정",
-    //   icon: <SettingsIcon />,
-    //   onClick: () => navigate("/setting"),
-    // },
+    {
+      title: "설정",
+      icon: <SettingsIcon />,
+      onClick: () => navigate("/setting"),
+    },
     {
       title: "로그아웃",
       icon: <LogoutIcon />,
@@ -72,14 +73,25 @@ export default function SideBar() {
       <Divider />
       {/* 드로어 리스트 */}
       <List>
-        <ListItem>
-          <ListItemAvatar>
-            <Avatar>
-              <PersonIcon sx={{ fontSize: 30 }} />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary={loginId} secondary="카마스터" />
-        </ListItem>
+        <div style={{ margin: "1.5vh" }}>
+          <ListItem
+            sx={{
+              backgroundColor: "#EDEDED",
+              borderRadius: "15px",
+            }}
+          >
+            <ListItemAvatar>
+              <Avatar sx={{ backgroundColor: "#8093BC" }}>
+                <PersonIcon sx={{ fontSize: 30 }} />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              disableTypography
+              primary={<Typography variant="body1">{loginId}</Typography>}
+              secondary={<Typography variant="body2">카마스터</Typography>}
+            />
+          </ListItem>
+        </div>
         {/* <Divider /> */}
         {sideBarItems.map((sideBarItem, index) => (
           <ListItem key={sideBarItem.title} disablePadding>
