@@ -27,7 +27,7 @@ function HomeRouter() {
       <Stack direction="row">
         <SideBar />
         <Stack sx={{ width: "100%", p: 4 }}>
-          <Typography sx={{ mb: 4 }} variant="h4">
+          <Typography sx={{ mb: 4, color: "#00287A" }} variant="h4">
             {
               titleInfoList.find(
                 (titleInfo) => titleInfo.pathname === pathname

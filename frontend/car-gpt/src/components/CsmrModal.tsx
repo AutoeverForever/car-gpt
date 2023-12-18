@@ -22,7 +22,7 @@ import { http } from "api/http";
 import { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { atomIsCsmrModal } from "recoil/atomIsCsmrModal";
-import { atomSelectedCsmr } from "recoil/atomSelectedCsmr";
+import { atomSelectedCsmr, atomSelectedCsmrNm } from "recoil/atomSelectedCsmr";
 import CsmrDetailInfoType from "types/CsmrDetailInfoType";
 
 interface CsmrModalProps {
@@ -31,6 +31,7 @@ interface CsmrModalProps {
 
 export default function CsmrModal() {
   const csmrMgmtNo = useRecoilValue(atomSelectedCsmr);
+  const csmrNm = useRecoilValue(atomSelectedCsmrNm);
   const [isCsmrModal, setIsCsmrModal] = useRecoilState(atomIsCsmrModal);
 
   const [csmrDetailInfo, setCsmrDetailInfo] = useState<CsmrDetailInfoType>();
@@ -62,7 +63,7 @@ export default function CsmrModal() {
       fullWidth={true}
       maxWidth="xs"
     >
-      <DialogTitle>고객 상세정보</DialogTitle>
+      <DialogTitle>{csmrNm} 고객 상세정보</DialogTitle>
       <DialogContent sx={{ p: 3 }}>
         {/* <Typography variant="h6">{csmrDetailInfo?.csmrMgmtNo}</Typography> */}
         {/* <Typography variant="subtitle1" sx={{ mb: 3 }}>
@@ -71,7 +72,7 @@ export default function CsmrModal() {
         {/* 구분선 왼쪽 */}
         <Grid container>
           <Grid item sx={{ mr: 2 }} xs>
-            <Grid container>
+            <Grid container spacing={0.5}>
               <Grid item xs={12}>
                 <Typography gutterBottom variant="body2" color="primary">
                   고객관리번호
@@ -147,7 +148,7 @@ export default function CsmrModal() {
           {/* 구분선 */}
           <Divider orientation="vertical" flexItem></Divider>
           <Grid item sx={{ ml: 2 }} xs>
-            <Grid container>
+            <Grid container spacing={0.5}>
               <Grid item xs={12}>
                 <Typography gutterBottom variant="body2" color="primary">
                   직장정보
