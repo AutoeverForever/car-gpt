@@ -109,22 +109,23 @@ export default function MailModal() {
               >
                 {csmrNm} 고객의 추천 차량.
               </Typography>
-              <Typography
-                variant="h4"
-                // sx={{ display: "flex", justifyContent: "center" }}
-              >
+              <Typography variant="h4" sx={{ color: "#00287A" }}>
                 {carInfo?.carNm}
               </Typography>
             </Grid>
             <Grid item xs={6} sx={{ mb: 2, textAlign: "end" }}>
               <Button
                 variant="contained"
-                sx={{ mr: 2 }}
+                sx={{ mr: 2, width: "130px" }}
                 onClick={getNewCarInfo}
               >
                 다시 추천받기
               </Button>
-              <Button variant="contained" onClick={sendEmail}>
+              <Button
+                variant="contained"
+                sx={{ width: "130px" }}
+                onClick={sendEmail}
+              >
                 메일 발송하기
               </Button>
             </Grid>
@@ -133,32 +134,42 @@ export default function MailModal() {
               <img src={carImg} width="100%" alt="carImage" />
             </Grid>
             <Grid item xs={6} sx={{ p: 3 }}>
-              <Grid container spacing={2.5}>
-                <Grid item xs={5}>
+              <Grid
+                container
+                direction="row"
+                justifyContent="flex-end"
+                alignItems="center"
+                sx={{ height: "100%", padding: "4vh" }}
+              >
+                <Grid item xs={5} sx={{ color: "#00287A" }}>
                   차종대표코드
                 </Grid>
                 <Grid item xs={7}>
-                  차종대표코드
+                  HCMDDP
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={5} sx={{ color: "#00287A" }}>
                   연료
                 </Grid>
                 <Grid item xs={7}>
-                  연료
+                  디젤
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={5} sx={{ color: "#00287A" }}>
                   연비
                 </Grid>
                 <Grid item xs={7}>
-                  연비
-                </Grid>
-                <Grid item xs={5}>
-                  추천이유
-                </Grid>
-                <Grid item xs={7}>
-                  {carInfo?.recDesc}
+                  16
                 </Grid>
               </Grid>
+            </Grid>
+            <Grid item xs={12} sx={{ color: "#00287A" }}>
+              <Typography variant="subtitle1">
+                차량 특징 및 추천 사유
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="body2" sx={{ lineHeight: "2" }}>
+                {carInfo?.recDesc}
+              </Typography>
             </Grid>
           </Grid>
         </DialogContent>
